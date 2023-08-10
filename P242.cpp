@@ -4,10 +4,6 @@
 
 using namespace std;
 
-bool isZero(int i){
-    return i == 0;
-}
-
 class Solution {
 public:
     bool isAnagram(string s, string t) {
@@ -28,6 +24,8 @@ public:
             char_map[c]--;
         }
 
-        return all_of(char_map.cbegin(), char_map.cend(), isZero());
+        return all_of(char_map.cbegin(), char_map.cend(),
+                      [](const auto&p){return p.second == 0;}
+                      );
     }
 };
